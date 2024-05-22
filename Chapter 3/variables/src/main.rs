@@ -27,10 +27,23 @@ fn main() {
 
     println!(
         "
-        List  of values:
-        five hundred : {five_hundred}
-        six point four : {six_point_four}
-        one : {one} 
+    List  of values:
+    five hundred : {five_hundred}
+    six point four : {six_point_four}
+    one : {one} 
     "
     );
+
+    // Chapter 3.3 Functions
+    println!("Chapter 3.3 Functions");
+    let score = ryuk(8, "medium");
+    println!("Ryuk's score {score}");
+}
+
+fn ryuk(age: i8, size: &str) -> f32 {
+    println!("Ryuk is the best dog!!!");
+    println!("age: {age}, size: {size}");
+
+    let score: f32 = 10.0;
+    score
 }
