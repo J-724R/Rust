@@ -1,4 +1,5 @@
 fn main() {
+    // Chapter 3.1. Variables and Mutability
     let mut x = 5;
     println!("The values of x is: {x}");
     x = 6;
@@ -14,4 +15,6 @@ fn main() {
     }
 
     println!("The value of y is: {y}");
+
+    // Chapter 3.2 Data Types
 }
