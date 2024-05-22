@@ -41,6 +41,68 @@ fn main() {
 
     // Chapter 3.4 Comments
     println!("Chapter 3.4 Comments");
+
+    // Chapter 3.5 Control Flow
+    println!("Chapter 3.5 Control Flow");
+
+    println!("Trying out loops");
+
+    let mut counter = 0;
+    loop {
+        println!("Loop counter: {counter}");
+        if counter == 10 {
+            break;
+        }
+        counter += 1;
+    }
+
+    println!("\nLoop labels\n");
+
+    'counting_up: loop {
+        println!("Outer loop count = {counter}");
+        let mut remaining = 10;
+
+        loop {
+            if counter == 2 {
+                break 'counting_up;
+            }
+            println!("Inner loop remaining = {remaining}");
+            if remaining == 1 {
+                break;
+            }
+            remaining -= 1;
+        }
+        counter -= 1;
+        if counter == 0 {
+            println!("Unreachable code");
+        }
+    }
+    println!("End counter = {counter}");
+
+    println!("\nWhile loops\n");
+
+    let mut number = 3;
+
+    while number != 0 {
+        println!("{number}!");
+        number -= 1;
+    }
+
+    println!("LIFTOFF!!!");
+
+    println!("\nFor loops\n");
+    let a = ["Ryuk", "Luna", "Negro", "Neron", "Manchas", "Traviesa"];
+
+    println!("Dogs names");
+    for dog_name in a {
+        println!("{dog_name}")
+    }
+
+    println!("\nFor loops with ranges\n");
+    for number in (1..4).rev() {
+        println!("{number}!");
+    }
+    println!("LIFTOFF!!!");
 }
 
 fn ryuk(age: i8, size: &str) -> f32 {
