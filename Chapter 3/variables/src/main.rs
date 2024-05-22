@@ -38,6 +38,9 @@ fn main() {
     println!("Chapter 3.3 Functions");
     let score = ryuk(8, "medium");
     println!("Ryuk's score {score}");
+
+    // Chapter 3.4 Comments
+    println!("Chapter 3.4 Comments");
 }
 
 fn ryuk(age: i8, size: &str) -> f32 {
