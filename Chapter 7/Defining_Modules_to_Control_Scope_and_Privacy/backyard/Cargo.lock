@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "package_and_crates"
+name = "backyard"
 version = "0.1.0"
