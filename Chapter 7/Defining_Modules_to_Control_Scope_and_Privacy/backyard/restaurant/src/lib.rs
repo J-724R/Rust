@@ -57,3 +57,18 @@ mod back_of_house {
 
     fn cook_order() {}
 }
+
+// Chapter 7.4 use keyword
+
+use crate::front_of_house::hosting;
+
+mod customer {
+    pub fn eat_at_restaurant2() {
+        super::hosting;
+        hosting::add_to_waitlist();
+    }
+}
+
+// pub fn eat_at_restaurant2() {
+//     hosting::add_to_waitlist();
+// }
