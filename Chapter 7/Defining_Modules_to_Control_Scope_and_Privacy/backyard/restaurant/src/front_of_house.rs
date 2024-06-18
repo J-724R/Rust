@@ -6,9 +6,10 @@ pub mod hosting;
 //     fn seat_at_table() {}
 // }
 
-mod serving {
-    fn tke_order() {}
-    fn serve_order() {}
-    fn take_payment() {}
-}
+mod serving;
+// {
+//     fn tke_order() {}
+//     fn serve_order() {}
+//     fn take_payment() {}
+// }
 // }
