@@ -15,7 +15,7 @@ fn main() {
     v.push(7);
     v.push(8);
 
-    // readin elements of vectors
+    // reading elements of vectors
 
     let v = vec![1, 2, 3, 4, 5];
 
@@ -32,4 +32,15 @@ fn main() {
 
     let does_not_exist = &v[100];
     let does_not_exist = v.get(100);
+
+    // iterating over the values in a vector
+    let v = vec![100, 32, 57];
+    for i in &v {
+        println!("{i}");
+    }
+
+    let mut v = vec![100, 32, 57];
+    for i in &mut v {
+        *i += 50;
+    }
 }
