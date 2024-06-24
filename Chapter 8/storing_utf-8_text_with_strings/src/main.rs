@@ -30,8 +30,8 @@ fn main() {
 
     let v = vec![1, 2, 3, 4, 5];
 
-    let does_not_exist = &v[100];
-    let does_not_exist = v.get(100);
+    // let does_not_exist = &v[100];
+    // let does_not_exist = v.get(100);
 
     // iterating over the values in a vector
     let v = vec![100, 32, 57];
@@ -43,4 +43,27 @@ fn main() {
     for i in &mut v {
         *i += 50;
     }
+
+    // Using enums to store multiple types
+    #[derive(Debug)]
+
+    enum SpreadSheetCell {
+        Int(i32),
+        Float(f64),
+        Text(String),
+    }
+
+    println!("\nSpread Sheet Cell\n");
+    let row = vec![
+        SpreadSheetCell::Int(3),
+        SpreadSheetCell::Text(String::from("blue")),
+        SpreadSheetCell::Float(10.12),
+        SpreadSheetCell::Text(String::from("Ryuk")),
+    ];
+
+    for i in &row {
+        println!("{:#?}", &i);
+    }
+
+    //Dropping a Vector Drops its elements
 }
