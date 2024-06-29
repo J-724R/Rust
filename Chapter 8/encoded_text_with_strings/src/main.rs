@@ -38,4 +38,13 @@ fn main() {
     s.push('l');
 
     // Concatenation with the + Operator or the format! Macro
+
+    // Indexing into strings
+    // Bytes and Scalar Values and Grapheme Clusters! Oh My!
+    // Slicing strings
+    // Methods for Iterating Over Strings
+
+    for c in "Зд".chars() {
+        println!("{c}");
+    }
 }
