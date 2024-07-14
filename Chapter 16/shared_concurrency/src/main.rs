@@ -21,3 +21,5 @@ fn main() {
 
     println!("Result: {}", *counter.lock().unwrap());
 }
+
+// Chapter 16 completed
