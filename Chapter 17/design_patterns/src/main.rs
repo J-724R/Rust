@@ -22,3 +22,5 @@ fn main() {
 
     assert_eq!("I ate a salad for lunch today", post.content());
 }
+
+// Chapter Completed
