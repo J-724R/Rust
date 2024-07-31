@@ -11,7 +11,6 @@ pub struct ThreadPool {
 type Job = Box<dyn FnOnce() + Send + 'static>;
 
 impl ThreadPool {
-    // --snip--
     /// Create a new ThreadPool.
     ///
     /// The size is the number of threads in the pool.
@@ -37,7 +36,6 @@ impl ThreadPool {
             sender: Some(sender),
         }
     }
-    // --snip--
 
     pub fn execute<F>(&self, f: F)
     where
@@ -46,6 +44,20 @@ impl ThreadPool {
         let job = Box::new(f);
 
         self.sender.as_ref().unwrap().send(job).unwrap();
+    }
+}
+
+impl Drop for ThreadPool {
+    fn drop(&mut self) {
+        drop(self.sender.take());
+
+        for worker in &mut self.workers {
+            println!("Shutting down worker {}", worker.id);
+
+            if let Some(thread) = worker.thread.take() {
+                thread.join().unwrap();
+            }
+        }
     }
 }
 
@@ -78,20 +90,3 @@ impl Worker {
         }
     }
 }
-}
-
-impl Drop for ThreadPool {
-    fn drop(&mut self) {
-        drop(self.sender.take());
-
-        for worker in &mut self.workers {
-            println!("Shutting down worker {}", worker.id);
-
-            if let Some(thread) = worker.thread.take() {
-                thread.join().unwrap();
-            }
-        }
-    }
-}
-
-// Dropping sender closes the channel, which indicates no more messages will be sent. When that happens, all the calls to recv that the workers do in the infinite loop will return an error. In Listing 20-24, we change the Worker loop to gracefully exit the loop in that case, which means the threads will finish when the ThreadPool drop implementation calls join on them.
